@@ -4,40 +4,52 @@ import dash_html_components as html
 import plotly.graph_objs as go
 
 ########### Define your variables
-beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-ibu_values=[35, 60, 85, 75]
-abv_values=[5.4, 7.1, 9.2, 4.3]
-color1='darkred'
-color2='orange'
+# beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
+# ibu_values=[35, 60, 85, 75]
+# abv_values=[5.4, 7.1, 9.2, 4.3]
+# color1='darkred'
+# color2='orange'
 mytitle='Beer Comparison'
-tabtitle='beer!'
-myheading='Flying Dog Beers'
+tabtitle='DDSC F22'
+myheading='Supermarket Sales Forecast Model'
 label1='IBU'
 label2='ABV'
-githublink='https://github.com/austinlasseter/flying-dog-beers'
-sourceurl='https://www.flyingdog.com/beers/'
+githublink='https://github.com/Davis-Data-Science-Club/Supermarket-Sales-Prediction'
+sourceurl='https://www.kaggle.com/datasets/ruchi798/shopping-cart-database'
+introText='''Running a business often boils down to two main goals: Maximize profits, minimize losses.
+            Businesses often rely on accurate sales forecasts to make better business
+            decisions, including efficient resource allocation and cash flow management. Using data 
+            analytics, businesses can also identify potential weaknesses in their business models, 
+            such as underperforming products, geographical locations, etc. Our product is targeted
+            towards small businesses, who lack the capital to pour significant amounts of money 
+            into data analytics.\n
+            Profitify by DDSC is a web application, aimed at increasing revenue and profit for supermarkets 
+            through a sales forecasting model. Owners have access to a data dashboard, which visually 
+            displays key statistics including most popular products by product category, complement 
+            products, time analysis, demographics, and more.
+            '''
 
 ########### Set up the chart
-bitterness = go.Bar(
-    x=beers,
-    y=ibu_values,
-    name=label1,
-    marker={'color':color1}
-)
-alcohol = go.Bar(
-    x=beers,
-    y=abv_values,
-    name=label2,
-    marker={'color':color2}
-)
+# bitterness = go.Bar(
+#     x=beers,
+#     y=ibu_values,
+#     name=label1,
+#     marker={'color':color1}
+# )
+# alcohol = go.Bar(
+#     x=beers,
+#     y=abv_values,
+#     name=label2,
+#     marker={'color':color2}
+# )
 
-beer_data = [bitterness, alcohol]
-beer_layout = go.Layout(
-    barmode='group',
-    title = mytitle
-)
+# beer_data = [bitterness, alcohol]
+# beer_layout = go.Layout(
+#     barmode='group',
+#     title = mytitle
+# )
 
-beer_fig = go.Figure(data=beer_data, layout=beer_layout)
+# beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 
 ########### Initiate the app
@@ -48,11 +60,16 @@ app.title=tabtitle
 
 ########### Set up the layout
 app.layout = html.Div(children=[
+    #Elements listed from top to bottom of page
     html.H1(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    ),
+    html.Div(children='''
+        Introduction   
+    '''),
+    html.P(introText)
+    # dcc.Graph(
+    #     id='flyingdog',
+    #     figure=beer_fig
+    # ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A('Data Source', href=sourceurl),
