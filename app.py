@@ -65,7 +65,7 @@ app.layout = html.Div(children=[
     html.Div(children='''
         Introduction   
     '''),
-    html.P(introText)
+    html.P(introText),
     # dcc.Graph(
     #     id='flyingdog',
     #     figure=beer_fig
