@@ -28,6 +28,8 @@ introText='''Running a business often boils down to two main goals: Maximize pro
             displays key statistics including most popular products by product category, complement 
             products, time analysis, demographics, and more.
             '''
+tools='Python (pandas, matplotlib, scikit-learn), Anaconda, Jupyter Notebook, Git, Github, Scrum'
+
 
 ########### Set up the chart
 # bitterness = go.Bar(
@@ -66,6 +68,10 @@ app.layout = html.Div(children=[
         Introduction   
     '''),
     html.P(introText),
+    html.Div('Tools'),
+    html.P(tools),
+    html.Div('Team'),
+    html.Div('Methodology'),
     # dcc.Graph(
     #     id='flyingdog',
     #     figure=beer_fig
